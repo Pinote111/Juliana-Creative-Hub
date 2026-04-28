@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Stars - OneRepublic</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .band-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            animation: float 3s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .song-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .artist {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .audio-player {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        audio {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .play-btn {
+            width: 150px;
+            height: 60px;
+            border-radius: 30px;
+            background: #ffd700;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .lyrics {
+            margin-top: 30px;
+            color: white;
+        }
+
+        .lyric-line {
+            margin: 10px 0;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .lyric-line:hover {
+            color: #ffd700;
+            transform: translateX(10px);
+            opacity: 1;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+    <img src="https://www.musicgorilla.com/wp-content/uploads/2014/10/onerepublic.jpg"
+         class="band-image">
+
+    <h1 class="song-title">COUNTING STARS</h1>
+    <p class="artist">OneRepublic</p>
+
+    <div class="audio-player">
+
+        <h3 style="color:#ffd700;">🎵 Listen to Song</h3>
+
+        <!-- MP3 AUDIO -->
+        <audio id="audio" loop>
+            <source src="assets/audio/counting-stars.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+
+        <!-- CUSTOM BUTTON -->
+        <button class="play-btn" id="playBtn">▶ Play</button>
+
+    </div>
+
+    <div class="lyrics">
+        <div class="lyric-line">Lately, I've been, I've been losing sleep</div>
+        <div class="lyric-line">Dreaming about the things that we could be</div>
+        <div class="lyric-line">But baby, I've been, I've been praying hard</div>
+        <div class="lyric-line">Said no more counting dollars</div>
+        <div class="lyric-line">We'll be counting stars</div>
+
+        <div class="lyric-line">Yeah, we'll be counting stars</div>
+
+        <br>
+
+        <div class="lyric-line">I see this life like a swinging vine</div>
+        <div class="lyric-line">Swing my heart across the line</div>
+        <div class="lyric-line">In my face is flashing signs</div>
+        <div class="lyric-line">Seek it out and ye shall find</div>
+        
+        <br>
+
+        <div class="lyric-line">Old, but I'm not that old</div>
+        <div class="lyric-line">Young, but I'm not that bold</div>
+        <div class="lyric-line">And I don't think the world is sold</div>
+        <div class="lyric-line">I'm just doing what we're told</div>
+        
+        <br>
+
+        <div class="lyric-line">I feel something so right</div>
+        <div class="lyric-line">Doing the wrong thing</div>
+        
+        <br>
+
+        <div class="lyric-line">I could lie, could lie, could lie</div>
+        <div class="lyric-line">Everything that kills me makes me feel alive</div>
+        
+        <br>
+
+        <div class="lyric-line">Lately, I've been, I've been losing sleep</div>
+        <div class="lyric-line">Dreaming about the things that we could be</div>
+        <div class="lyric-line">Baby, I've been, I've been praying hard</div>
+        <div class="lyric-line">Said no more counting dollars</div>
+        <div class="lyric-line">We'll be counting stars</div>
+    </div>
+
+</div>
+
+<script>
+    // stars
+    function createStars() {
+        const container = document.getElementById("stars");
+        for (let i = 0; i < 80; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 100 + "%";
+            star.style.width = star.style.height = (Math.random() * 3 + 1) + "px";
+            container.appendChild(star);
+        }
+    }
+
+    createStars();
+
+    // audio control
+    const audio = document.getElementById("audio");
+    const btn = document.getElementById("playBtn");
+
+    btn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            btn.textContent = "⏸ Pause";
+        } else {
+            audio.pause();
+            btn.textContent = "▶ Play";
+        }
+    });
+</script>
+
+</body>
+</html>
